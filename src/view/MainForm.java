@@ -2,6 +2,8 @@ package view;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class MainForm extends javax.swing.JFrame {
 
@@ -47,7 +49,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuMentes = new javax.swing.JMenuItem();
         menuKilep = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
@@ -151,6 +153,11 @@ public class MainForm extends javax.swing.JFrame {
         jRadioButton2.setText("lapok összértéke");
 
         jButton3.setText("Mentés");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Kilépés");
 
@@ -188,8 +195,13 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenu5.setText("File");
 
-        jMenuItem1.setText("Mentés");
-        jMenu5.add(jMenuItem1);
+        menuMentes.setText("Mentés");
+        menuMentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuMentesActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuMentes);
 
         menuKilep.setText("Kilépés");
         jMenu5.add(menuKilep);
@@ -257,6 +269,26 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonMenuItem2ActionPerformed
 
+    private void menuMentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuMentesActionPerformed
+      fajlValasztas();
+    }//GEN-LAST:event_menuMentesActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        fajlValasztas();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    
+    public void fajlValasztas(){
+         JFileChooser j=new JFileChooser();
+       FileNameExtensionFilter filter = new FileNameExtensionFilter("*jpg,*gif","*txt");
+       j.setFileFilter(filter);
+       j.setDialogTitle("Megnyitás");
+       j.showOpenDialog(jPanel1);
+    }
+    
+    public void kilepes(){
+        
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -310,7 +342,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -319,5 +350,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem2;
     private javax.swing.JMenuItem menuKilep;
+    private javax.swing.JMenuItem menuMentes;
     // End of variables declaration//GEN-END:variables
 }
